@@ -14,8 +14,10 @@ services:
   docker:
     container_name: dind
     networks:
-      - jenkins
-    privileged: false
+      jenkins:
+        aliases:
+          - docker
+    privileged: true
     environment:
       DOCKER_TLS_CERTDIR: /certs
     volumes:
